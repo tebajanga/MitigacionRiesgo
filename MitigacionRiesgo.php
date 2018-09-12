@@ -14,8 +14,8 @@ class MitigacionRiesgo extends CRMEntity {
 	public $db;
 	public $log;
 
-	public $table_name = 'vtiger_MODULE_NAME_LOWERCASE';
-	public $table_index= 'MODULE_NAME_LOWERCASEid';
+	public $table_name = 'vtiger_mitigacionriesgo';
+	public $table_index= 'MODULE_mitigacionriesgoid';
 	public $column_fields = array();
 
 	/** Indicator if this is a custom module or standard module */
@@ -24,7 +24,7 @@ class MitigacionRiesgo extends CRMEntity {
 	/**
 	 * Mandatory table for supporting custom fields.
 	 */
-	public $customFieldTable = array('vtiger_MODULE_NAME_LOWERCASEcf', 'MODULE_NAME_LOWERCASEid');
+	public $customFieldTable = array('vtiger_mitigacionriesgocf', 'mitigacionriesgoid');
 	// related_tables variable should define the association (relation) between dependent tables
 	// FORMAT: related_tablename => array(related_tablename_column[, base_tablename, base_tablename_column[, related_module]] )
 	// Here base_tablename_column should establish relation with related_tablename_column
@@ -35,15 +35,15 @@ class MitigacionRiesgo extends CRMEntity {
 	/**
 	 * Mandatory for Saving, Include tables related to this module.
 	 */
-	public $tab_name = array('vtiger_crmentity', 'vtiger_MODULE_NAME_LOWERCASE', 'vtiger_MODULE_NAME_LOWERCASEcf');
+	public $tab_name = array('vtiger_crmentity', 'vtiger_mitigacionriesgo', 'vtiger_mitigacionriesgocf');
 
 	/**
 	 * Mandatory for Saving, Include tablename and tablekey columnname here.
 	 */
 	public $tab_name_index = array(
 		'vtiger_crmentity' => 'crmid',
-		'vtiger_MODULE_NAME_LOWERCASE'   => 'MODULE_NAME_LOWERCASEid',
-		'vtiger_MODULE_NAME_LOWERCASEcf' => 'MODULE_NAME_LOWERCASEid',
+		'vtiger_mitigacionriesgo'   => 'mitigacionriesgoid',
+		'vtiger_mitigacionriesgocf' => 'mitigacionriesgoid',
 	);
 
 	/**
@@ -52,52 +52,74 @@ class MitigacionRiesgo extends CRMEntity {
 	public $list_fields = array(
 		/* Format: Field Label => array(tablename => columnname) */
 		// tablename should not have prefix 'vtiger_'
-		'MODULE_NAME_LABEL'=> array('MODULE_NAME_LOWERCASE' => 'MODULE_REFERENCE_FIELD'),
-		'Assigned To' => array('crmentity' => 'smownerid')
+		'Mitigacion Riesgo No'=> array('mitigacionriesgo' => 'mitigacionriesgo_no'),
+		'Catsg'=> array('mitigacionriesgo' => 'catsg'),
+		'Catrsg'=> array('mitigacionriesgo' => 'catrsg'),
+		'Valrsg'=> array('mitigacionriesgo' => 'valrsg'),
+		'Redprobabilidad'=> array('mitigacionriesgo' => 'redprobabilidad'),
+		'Redimpacto'=> array('mitigacionriesgo' => 'redimpacto'),
+		'Mtgrsg Status'=> array('mitigacionriesgo' => 'mtgrsgstatus')
 	);
 	public $list_fields_name = array(
 		/* Format: Field Label => fieldname */
-		'MODULE_NAME_LABEL'=> 'MODULE_REFERENCE_FIELD',
-		'Assigned To' => 'assigned_user_id'
+		'Mitigacion Riesgo No'=> 'mitigacionriesgo_no',
+		'Catsg'=> 'catsg',
+		'Catrsg'=> 'catrsg',
+		'Valrsg'=> 'valrsg',
+		'Redprobabilidad'=> 'redprobabilidad',
+		'Redimpacto'=> 'redimpacto',
+		'Mtgrsg Status'=> 'mtgrsgstatus'
 	);
 
 	// Make the field link to detail view from list view (Fieldname)
-	public $list_link_field = 'MODULE_REFERENCE_FIELD';
+	public $list_link_field = 'mitigacionriesgo_no';
 
 	// For Popup listview and UI type support
 	public $search_fields = array(
 		/* Format: Field Label => array(tablename => columnname) */
 		// tablename should not have prefix 'vtiger_'
-		'MODULE_NAME_LABEL'=> array('MODULE_NAME_LOWERCASE' => 'MODULE_REFERENCE_FIELD')
+		'Mitigacion Riesgo No'=> array('mitigacionriesgo' => 'mitigacionriesgo_no'),
+		'Catsg'=> array('mitigacionriesgo' => 'catsg'),
+		'Catrsg'=> array('mitigacionriesgo' => 'catrsg'),
+		'Valrsg'=> array('mitigacionriesgo' => 'valrsg'),
+		'Redprobabilidad'=> array('mitigacionriesgo' => 'redprobabilidad'),
+		'Redimpacto'=> array('mitigacionriesgo' => 'redimpacto'),
+		'Mtgrsg Status'=> array('mitigacionriesgo' => 'mtgrsgstatus')
 	);
 	public $search_fields_name = array(
 		/* Format: Field Label => fieldname */
-		'MODULE_NAME_LABEL Name'=> 'MODULE_REFERENCE_FIELD'
+		'Mitigacion Riesgo No'=> 'mitigacionriesgo_no',
+		'Catsg'=> 'catsg',
+		'Catrsg'=> 'catrsg',
+		'Valrsg'=> 'valrsg',
+		'Redprobabilidad'=> 'redprobabilidad',
+		'Redimpacto'=> 'redimpacto',
+		'Mtgrsg Status'=> 'mtgrsgstatus'
 	);
 
 	// For Popup window record selection
-	public $popup_fields = array('MODULE_REFERENCE_FIELD');
+	public $popup_fields = array('mitigacionriesgo_no');
 
 	// Placeholder for sort fields - All the fields will be initialized for Sorting through initSortFields
 	public $sortby_fields = array();
 
 	// For Alphabetical search
-	public $def_basicsearch_col = 'MODULE_REFERENCE_FIELD';
+	public $def_basicsearch_col = 'mitigacionriesgo_no';
 
 	// Column value to use on detail view record text display
-	public $def_detailview_recname = 'MODULE_REFERENCE_FIELD';
+	public $def_detailview_recname = 'mitigacionriesgo_no';
 
 	// Required Information for enabling Import feature
-	public $required_fields = array('MODULE_REFERENCE_FIELD'=>1);
+	public $required_fields = array('mitigacionriesgo_no'=>1);
 
 	// Callback function list during Importing
 	public $special_functions = array('set_import_assigned_user');
 
-	public $default_order_by = 'MODULE_REFERENCE_FIELD';
+	public $default_order_by = 'mitigacionriesgo_no';
 	public $default_sort_order='ASC';
 	// Used when enabling/disabling the mandatory fields for the module.
 	// Refers to vtiger_field.fieldname values.
-	public $mandatory_fields = array('createdtime', 'modifiedtime', 'MODULE_REFERENCE_FIELD');
+	public $mandatory_fields = array('createdtime', 'modifiedtime', 'mitigacionriesgo_no');
 
 	public function save_module($module) {
 		if ($this->HasDirectImageField) {
@@ -113,7 +135,7 @@ class MitigacionRiesgo extends CRMEntity {
 	public function vtlib_handler($modulename, $event_type) {
 		if ($event_type == 'module.postinstall') {
 			// TODO Handle post installation actions
-			$this->setModuleSeqNumber('configure', $modulename, $modulename.'-', '0000001');
+			$this->setModuleSeqNumber('configure', $modulename, $modulename.'sgrg-', '0000001');
 		} elseif ($event_type == 'module.disabled') {
 			// TODO Handle actions when this module is disabled.
 		} elseif ($event_type == 'module.enabled') {
