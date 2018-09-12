@@ -7,6 +7,6 @@
  * All Rights Reserved.
  ************************************************************************************/
 
- function MitigacionRiesgosetValueFromCapture(recordid, value, target_fieldname) {
-     console.log(recordid, value, target_fieldname);
- }
+function MitigacionRiesgosetValueFromCapture(recordid, value, target_fieldname) {
+    console.log(recordid, value, target_fieldname);
+}
