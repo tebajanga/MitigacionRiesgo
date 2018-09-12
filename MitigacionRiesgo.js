@@ -6,3 +6,7 @@
  * Portions created by vtiger are Copyright (C) vtiger.
  * All Rights Reserved.
  ************************************************************************************/
+
+ function MitigacionRiesgosetValueFromCapture(recordid, value, target_fieldname) {
+     console.log(recordid, value, target_fieldname);
+ }
