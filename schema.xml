@@ -1,0 +1,28 @@
+<?xml version='1.0'?>
+<schema>
+	<tables>
+		<table>
+			<name>vtiger_mitigacionriesgo</name>
+			<sql><![CDATA[CREATE TABLE `vtiger_mitigacionriesgo` (
+  `mitigacionriesgoid` int(11) NOT NULL,
+  `catsg` int(11) default NULL,
+  `redprobabilidad` decimal(7,3) DEFAULT NULL,
+  `catrsg` int(11) default NULL,
+  `redimpacto` decimal(7,3) DEFAULT NULL,
+  `valrsg` int(11) default NULL,
+  `mtgrsgstatus` varchar(200) DEFAULT NULL,
+  `responsable` varchar(200) DEFAULT NULL,
+  `cuando` date default NULL,
+  `mitigacionriesgo_no` varchar(56) default NULL,
+  PRIMARY KEY (`mitigacionriesgoid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
+		</table>
+		<table>
+			<name>vtiger_mitigacionriesgocf</name>
+			<sql><![CDATA[CREATE TABLE `vtiger_mitigacionriesgocf` (
+  `mitigacionriesgoid` int(11) NOT NULL,
+  PRIMARY KEY (`mitigacionriesgoid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
+		</table>
+	</tables>
+</schema>

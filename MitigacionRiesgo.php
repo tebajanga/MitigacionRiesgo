@@ -15,7 +15,7 @@ class MitigacionRiesgo extends CRMEntity {
 	public $log;
 
 	public $table_name = 'vtiger_mitigacionriesgo';
-	public $table_index= 'MODULE_mitigacionriesgoid';
+	public $table_index= 'mitigacionriesgoid';
 	public $column_fields = array();
 
 	/** Indicator if this is a custom module or standard module */
