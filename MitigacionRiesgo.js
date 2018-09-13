@@ -51,9 +51,4 @@ function MitigacionRiesgosetValueFromCapture(recordid, value, target_fieldname) 
             });
         });
     }
-    else {
-        console.log(catsg);
-        console.log(catrsg);
-        console.log('NOT set');
-    }
 }
