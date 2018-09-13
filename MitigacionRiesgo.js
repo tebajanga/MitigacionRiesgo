@@ -33,7 +33,7 @@ function MitigacionRiesgosetValueFromCapture(recordid, value, target_fieldname) 
 
                 cbws.doQuery("select redprobabilidad, redimpacto from SalvaguardasRiesgos where catsg='"+catsg_wsid+'x'+catsg+"' and catrsg='"+catrsg_wsid+'x'+catrsg+"' limit 1")
                     .then(function (value) {
-                        if (value) {
+                        if (value.length > 0) {
                             var redprobabilidad = value[0]['redprobabilidad'];
                             var redimpacto = value[0]['redimpacto'];
 
