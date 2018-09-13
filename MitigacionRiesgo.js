@@ -8,5 +8,45 @@
  ************************************************************************************/
 
 function MitigacionRiesgosetValueFromCapture(recordid, value, target_fieldname) {
-    console.log(recordid, value, target_fieldname);
+    var catsg = 0;
+    var catrsg = 0;
+
+    if (target_fieldname=='catsg') {
+        catsg = recordid;
+    }
+
+    if (target_fieldname=='catrsg') {
+        catrsg = recordid;
+    }
+
+    if(catsg !=0 && catrsg !=0) {
+        var cbws = new cbWSClient('');
+        cbws.extendSession();
+
+        var catsg_wsid = ExecuteFunctions('getModuleWebseriviceID','wsmodule=CatalogoSalvaGuarda').then(function(data) {
+            return data;
+        });
+
+        var catrsg_wsid = ExecuteFunctions('getModuleWebseriviceID','wsmodule=CatalogoRiesgos').then(function(data) {
+            return data;
+        });
+
+        cbws.doQuery("select redprobabilidad, redimpacto from SalvaguardasRiesgos where catsg='"+catsg_wsid+'x'+catsg+"' and catrsg='"+catrsg_wsid+'x'+catrsg+"' limit 1")
+            .then(function (value) {
+                if (value) {
+                    var redprobabilidad = value[0]['redprobabilidad'];
+                    var redimpacto = value[0]['redimpacto'];
+
+                    if (document.EditView) {
+                        if (document.EditView.redprobabilidad) {
+                            document.EditView.redprobabilidad.value = redprobabilidad;
+                        }
+                
+                        if (document.EditView.redimpacto) {
+                            document.EditView.redimpacto.value = redimpacto;
+                        }
+                    }
+                }
+            });
+    }
 }
