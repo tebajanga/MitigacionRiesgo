@@ -428,6 +428,13 @@
 <events>
 </events>
 <customlinks>
+<customlink>
+<linktype>HEADERSCRIPT</linktype>
+<linklabel>WSClientpScript</linklabel>
+<linkurl><![CDATA[include/Webservices/WSClientp.js]]></linkurl>
+<linkicon><![CDATA[]]></linkicon>
+<sequence>0</sequence>
+</customlink>
 </customlinks>
 <crons>
 </crons>
