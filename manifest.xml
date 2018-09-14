@@ -59,7 +59,7 @@
 <block>
 <label>LBL_MITIGACIONRIESGO</label>
 <fields>
-<field>tiposgrsg
+<field>
 <fieldname>catsg</fieldname>
 <uitype>10</uitype>
 <columnname>catsg</columnname>
