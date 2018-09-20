@@ -433,6 +433,7 @@
 <linklabel>WSClientpScript</linklabel>
 <linkurl><![CDATA[include/Webservices/WSClientp.js]]></linkurl>
 <linkicon><![CDATA[]]></linkicon>
+<onlyonmodule>1</onlyonmodule>
 <sequence>0</sequence>
 </customlink>
 </customlinks>

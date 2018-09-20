@@ -7,8 +7,6 @@
  * All Rights Reserved.
  ************************************************************************************/
 
-var catsg = 0;
-var catrsg = 0;
 var catsg_wsid = "";
 var catrsg_wsid = "";
 
@@ -23,13 +21,8 @@ ExecuteFunctions('getModuleWebseriviceID','wsmodule=CatalogoRiesgos').then(funct
 });
 
 function MitigacionRiesgosetValueFromCapture(recordid, value, target_fieldname) {
-    if (target_fieldname=='catsg') {
-        catsg = recordid;
-    }
-
-    if (target_fieldname=='catrsg') {
-        catrsg = recordid;
-    }
+    var catsg = document.getElementById('catsg').value;
+    var catrsg = document.getElementById('catrsg').value;
 
     if(catsg !=0 && catrsg !=0) {
         cbws.doQuery("select redprobabilidad, redimpacto from SalvaguardasRiesgos where catsg='"+catsg_wsid+catsg+"' and catrsg='"+catrsg_wsid+catrsg+"' limit 1")
